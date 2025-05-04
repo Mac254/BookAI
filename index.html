@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BookAI - AI-powered book writing tool that generates professional-quality books in minutes across multiple genres.">
+    <title>BookAI - AI-Powered Book Writing | Create Books Instantly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="BookAI - AI-Powered Book Writing">
+    <meta property="og:description" content="Generate high-quality books in minutes with AI technology. Download in multiple formats.">
+    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:url" content="https://bookai.example.com">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "BookAI",
+        "applicationCategory": "Writing Software",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "AI-powered book writing tool that generates professional-quality books in minutes."
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="BookAI Logo" class="logo-img" width="120" height="40">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How it Works</a></li>
+                <li><a href="index.html#roadmap">Roadmap</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="models.html">Models</a></li>
+                <li class="cta-button"><a href="login.html" class="btn btn-small">Login / Sign Up</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle neon mode" onclick="toggleTheme()">🌌</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title">Create Captivating Books in Minutes with AI</h1>
+                <p class="hero-subtitle">Unleash the power of AI to write, format, and publish your next bestseller.</p>
+                <div class="hero-features">
+                    <span>✓ Unlimited free books</span>
+                    <span>✓ Multiple file formats</span>
+                    <span>✓ No writing experience needed</span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#get-started" class="btn btn-primary">Get Started Free</a>
+                    <a href="#demo" class="btn btn-secondary">See Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/book2.png" alt="BookAI interface showing book generation" width="600" height="400" loading="eager">
+            </div>
+            <div class="announcement-banner" role="alert">
+                <p><strong>News:</strong> BookAI has been acquired by Indicus AI. Indicus LLM will now power all text and image generation.</p>
+            </div>
+        </section>
+
+        <section class="social-proof">
+            <div class="trust-logos">
+                <p>Trusted by authors worldwide</p>
+                <div class="logo-container">
+                    <img src="assets/publisher1.png" alt="Publisher logo" width="120" height="40" loading="lazy">
+                    <img src="assets/publisher2.png" alt="Publisher logo" width="120" height="40" loading="lazy">
+                    <img src="assets/publisher3.png" alt="Publisher logo" width="120" height="40" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features" aria-labelledby="features-title">
+            <h2 id="features-title">Why Choose BookAI?</h2>
+            <div class="feature-grid">
+                <article class="feature-card" aria-labelledby="feature-ai">
+                    <div class="feature-icon">🤖</div>
+                    <h3 id="feature-ai">Advanced AI Writing</h3>
+                    <p>Generate high-quality content with state-of-the-art AI that understands narrative structure and character development.</p>
+                </article>
+                <article class="feature-card" aria-labelledby="feature-genre">
+                    <div class="feature-icon">📚</div>
+                    <h3 id="feature-genre">Custom Genre Blending</h3>
+                    <p>Create stories in any genre or blend multiple styles to craft something truly unique.</p>
+                </article>
+                <article class="feature-card" aria-labelledby="feature-download">
+                    <div class="feature-icon">⬇️</div>
+                    <h3 id="feature-download">Instant Download</h3>
+                    <p>Get your completed book in EPUB, PDF, MOBI, or plain text formats for immediate use or distribution.</p>
+                </article>
+                <article class="feature-card" aria-labelledby="feature-multilingual">
+                    <div class="feature-icon">🌍</div>
+                    <h3 id="feature-multilingual">Multilingual Support</h3>
+                    <p>Generate content in 25+ languages effortlessly, expanding your global reach.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works" aria-labelledby="how-it-works-title">
+            <h2 id="how-it-works-title">Create Your Book in 4 Simple Steps</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <img src="assets/choose.png" alt="Genre Selection Interface" class="step-img" width="200" height="150" loading="lazy">
+                    <h3>Choose Your Genre</h3>
+                    <p>Select from a wide range of genres or create a custom blend to suit your vision.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <img src="assets/genre.png" alt="Key Details Input Interface" class="step-img" width="200" height="150" loading="lazy">
+                    <h3>Provide Key Details</h3>
+                    <p>Input main characters, plot points, or themes to guide the AI in creating your perfect story.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <img src="assets/c.png" alt="AI Generation Process Visualization" class="step-img" width="200" height="150" loading="lazy">
+                    <h3>AI Generation</h3>
+                    <p>Our advanced AI creates your book based on your inputs, crafting engaging narratives and vivid descriptions.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <img src="assets/a.png" alt="Review and Download Interface" class="step-img" width="200" height="150" loading="lazy">
+                    <h3>Review and Download</h3>
+                    <p>Preview your generated book, make any final adjustments, and download in your preferred format.</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <img src="assets/AI.webp" alt="BookAI tutorial video thumbnail" width="640" height="360" loading="lazy">
+                    <button class="play-button" aria-label="Play tutorial video">▶</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="roadmap" aria-labelledby="roadmap-title">
+            <h2 id="roadmap-title">Roadmap</h2>
+            <div class="feature-grid">
+                <article class="feature-card" aria-labelledby="roadmap-character">
+                    <div class="feature-icon">🧑‍🎨</div>
+                    <h3 id="roadmap-character">Advanced Character Development</h3>
+                    <p>AI-powered tool for creating deep, complex characters.</p>
+                </article>
+                <article class="feature-card" aria-labelledby="roadmap-ebook">
+                    <div class="feature-icon">📖</div>
+                    <h3 id="roadmap-ebook">E-book Platform Integration</h3>
+                    <p>Seamless publishing to popular e-book platforms.</p>
+                </article>
+                <article class="feature-card" aria-labelledby="roadmap-collaborative">
+                    <div class="feature-icon">🤝</div>
+                    <h3 id="roadmap-collaborative">Collaborative Writing</h3>
+                    <p>Co-create stories with other authors or AI assistants.</p>
+                </article>
+                <article class="feature-card" aria-labelledby="roadmap-cover">
+                    <div class="feature-icon">🎨</div>
+                    <h3 id="roadmap-cover">AI Cover Art Generation</h3>
+                    <p>Create stunning book covers with AI-generated art.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="samples" class="samples" aria-labelledby="samples-title">
+            <h2 id="samples-title">See What BookAI Can Create</h2>
+            <p class="samples-intro">Explore some of the captivating books created using our AI technology.</p>
+            <div class="sample-tabs">
+                <button class="tab-button active" data-genre="scifi">Science Fiction</button>
+                <button class="tab-button" data-genre="mystery">Mystery</button>
+                <button class="tab-button" data-genre="fantasy">Fantasy</button>
+            </div>
+            <div class="sample-display">
+                <div class="sample-content active" id="scifi-sample">
+                    <div class="book-preview">
+                        <img src="assets/paradox.png" alt="Paradox Science Fiction Book Cover" class="sample-img" width="200" height="300" loading="lazy">
+                        <div class="book-details">
+                            <h3>Paradox: Journey Through Time</h3>
+                            <p class="book-excerpt">"As Dr. Elara stepped through the shimmering portal, she knew there was no turning back. The fate of two universes now rested in her hands..."</p>
+                            <a href="#read-more-scifi" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sample-content" id="mystery-sample">
+                    <div class="book-preview">
+                        <img src="assets/MYSTREY.jpg" alt="Paradox Mystery Book Cover" class="sample-img" width="200" height="300" loading="lazy">
+                        <div class="book-details">
+                            <h3>Paradox: The Ghostly Beacon</h3>
+                            <p class="book-excerpt">"The old lighthouse stood silent, its beacon long extinguished. But on foggy nights, some swore they could still see its ghostly light..."</p>
+                            <a href="#read-more-mystery" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sample-content" id="fantasy-sample">
+                    <div class="book-preview">
+                        <img src="assets/FANTASY.jpg" alt="Paradox Fantasy Book Cover" class="sample-img" width="200" height="300" loading="lazy">
+                        <div class="book-details">
+                            <h3>Paradox: Starlight Prophecy</h3>
+                            <p class="book-excerpt">"The ancient prophecy spoke of a child born with starlight in their eyes. As the comet blazed overhead, the kingdom held its breath..."</p>
+                            <a href="#read-more-fantasy" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials" aria-labelledby="testimonials-title">
+            <h2 id="testimonials-title">What Our Users Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"BookAI revolutionized my writing process. I completed my debut novel in just two weeks and received incredible feedback from my readers!"</p>
+                    <div class="testimonial-author">
+                        <img src="assets/j.jpg" alt="Sarah J." class="testimonial-img" width="60" height="60" loading="lazy">
+                        <div class="author-info">
+                            <h3>Sarah J.</h3>
+                            <p>Published Author</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"The AI-generated ideas helped me overcome writer's block. It's like having a co-author at your fingertips who never runs out of creative ideas!"</p>
+                    <div class="testimonial-author">
+                        <img src="assets/2.jpg" alt="Mark T." class="testimonial-img" width="60" height="60" loading="lazy">
+                        <div class="author-info">
+                            <h3>Mark T.</h3>
+                            <p>Fantasy Writer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing" aria-labelledby="pricing-title">
+            <h2 id="pricing-title">Simple, Transparent Pricing</h2>
+            <div class="pricing-toggle">
+                <span>Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Annual <span class="discount-badge">Save 20%</span></span>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <p class="price">$0<span>/month</span></p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ 3 AI-generated books per month</li>
+                        <li>✓ Basic editing tools</li>
+                        <li>✓ PDF & EPUB downloads</li>
+                        <li>✓ Standard AI model</li>
+                        <li class="feature-disabled">❌ No custom book covers</li>
+                        <li class="feature-disabled">❌ No API access</li>
+                    </ul>
+                    <a href="#signup" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <p class="price">$19<span>/month</span></p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Unlimited AI-generated books</li>
+                        <li>✓ Advanced editing tools</li>
+                        <li>✓ All download formats</li>
+                        <li>✓ Premium AI model</li>
+                        <li>✓ Custom book covers</li>
+                        <li class="feature-disabled">❌ Limited API access</li>
+                    </ul>
+                    <a href="#signup-pro" class="btn btn-primary">Start Free Trial</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <p class="price">$99<span>/month</span></p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Everything in Pro</li>
+                        <li>✓ Unlimited API access</li>
+                        <li>✓ Dedicated support</li>
+                        <li>✓ Custom genre training</li>
+                        <li>✓ White-label options</li>
+                        <li>✓ Priority processing</li>
+                    </ul>
+                    <a href="#contact-sales" class="btn btn-outline">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary>How does BookAI generate books?</summary>
+                    <p>BookAI uses advanced AI models trained on millions of books to understand narrative structure, character development, and genre conventions. It combines your inputs with this knowledge to create original, engaging content tailored to your specifications.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I own the content created with BookAI?</summary>
+                    <p>Yes! All content generated using BookAI belongs entirely to you. You can publish, sell, or distribute it however you wish without any royalty payments or attribution requirements.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I edit the AI-generated content?</summary>
+                    <p>Absolutely. BookAI provides a full-featured editor that allows you to modify, expand, or refine any part of the generated text before finalizing your book.</p>
+                </details>
+            </div>
+        </section>
+
+        <section id="newsletter" class="newsletter" aria-labelledby="newsletter-title">
+            <div class="newsletter-content">
+                <h2 id="newsletter-title">Join 10,000+ Authors Using BookAI</h2>
+                <p>Subscribe to our newsletter for AI writing tips, feature updates, and exclusive offers</p>
+                <form aria-label="Newsletter subscription" class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="privacy-note">We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Write Your Next Bestseller?</h2>
+                <p>No writing experience needed. Get started for free today.</p>
+                <a href="#get-started" class="btn btn-large btn-primary">Create Your First Book</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <img src="assets/logo.png" alt="BookAI Logo" class="footer-logo" width="120" height="40">
+                <p>AI-powered book writing for authors of all experience levels.</p>
+                <div class="social-links">
+                    <a href="#twitter" aria-label="Twitter"><svg class="social-icon" aria-hidden="true"></svg></a>
+                    <a href="#facebook" aria-label="Facebook"><svg class="social-icon" aria-hidden="true"></svg></a>
+                    <a href="#instagram" aria-label="Instagram"><svg class="social-icon" aria-hidden="true"></svg></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="index.html#roadmap">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BookAI. All rights reserved</p>
+            <div class="legal-links">
+                <a href="#terms">Terms of Service</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#cookies">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <p>We use cookies to improve your experience. By continuing, you agree to our <a href="#privacy">privacy policy</a>.</p>
+        <div class="cookie-buttons">
+            <button class="btn btn-small" id="cookieAccept">Accept All</button>
+            <button class="btn btn-small btn-outline" id="cookieSettings">Cookie Settings</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93997a7b5e7f44d1',t:'MTc0NjIwOTQ1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

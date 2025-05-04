@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BookAI - Log in to access your AI-powered book writing tools.">
+    <title>BookAI - Log In</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="BookAI Log In">
+    <meta property="og:description" content="Log in to access BookAI's AI-powered book writing tools.">
+    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:url" content="https://bookai.example.com/login">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "BookAI Log In",
+        "description": "Log in to access BookAI's AI-powered book writing tools."
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="BookAI Logo" class="logo-img" width="120" height="40">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How it Works</a></li>
+                <li><a href="index.html#roadmap">Roadmap</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="models.html">Models</a></li>
+                <li class="cta-button"><a href="login.html" class="btn btn-small active">Login / Sign Up</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle neon mode" onclick="toggleTheme()">🌌</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="login-title">
+            <div class="hero-content">
+                <h1 id="login-title">Log In to BookAI</h1>
+                <p class="hero-subtitle">Access your AI-powered book writing tools.</p>
+                <form action="#" method="POST" class="newsletter-form" aria-label="Login form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" aria-label="Email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" aria-label="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </form>
+                <p class="form-link">Don't have an account? <a href="register.html">Sign Up</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <img src="assets/logo.png" alt="BookAI Logo" class="footer-logo" width="120" height="40">
+                <p>AI-powered book writing for authors of all experience levels.</p>
+                <div class="social-links">
+                    <a href="#twitter" aria-label="Twitter"><svg class="social-icon" aria-hidden="true"></svg></a>
+                    <a href="#facebook" aria-label="Facebook"><svg class="social-icon" aria-hidden="true"></svg></a>
+                    <a href="#instagram" aria-label="Instagram"><svg class="social-icon" aria-hidden="true"></svg></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="index.html#roadmap">Roadmap</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BookAI. All rights reserved</p>
+            <div class="legal-links">
+                <a href="#terms">Terms of Service</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#cookies">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <p>We use cookies to improve your experience. By continuing, you agree to our <a href="#privacy">privacy policy</a>.</p>
+        <div class="cookie-buttons">
+            <button class="btn btn-small" id="cookieAccept">Accept All</button>
+            <button class="btn btn-small btn-outline" id="cookieSettings">Cookie Settings</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
