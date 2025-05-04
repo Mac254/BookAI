@@ -50,7 +50,8 @@
             <div class="hero-content">
                 <h1 id="register-title">Sign Up for BookAI</h1>
                 <p class="hero-subtitle">Create an account to start writing with AI-powered tools.</p>
-                <form action="#" method="POST" class="auth-form" data-form-type="register" aria-label="Registration form">
+                <form action="#" method="POST" class="auth-form" data-form-type="register" aria-label="Registration form" autocomplete="off">
+                    <input type="hidden" name="csrf_token" id="csrf_token">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" id="username" name="username" placeholder="Enter your username" aria-label="Username" required>
@@ -122,14 +123,6 @@
             </div>
         </div>
     </footer>
-
-    <div class="cookie-banner" id="cookieBanner">
-        <p>We use cookies to improve your experience. By continuing, you agree to our <a href="#privacy">privacy policy</a>.</p>
-        <div class="cookie-buttons">
-            <button class="btn btn-small" id="cookieAccept">Accept All</button>
-            <button class="btn btn-small btn-outline" id="cookieSettings">Cookie Settings</button>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a70fe6fb0a44e1',t:'MTc0NjM1MTg5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>

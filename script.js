@@ -142,6 +142,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const authForm = document.querySelector('.auth-form');
     if (!authForm) return;
 
+    // Helper function to generate a mock CSRF token (for demo; in production, get from server)
+    function generateCsrfToken() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let token = '';
+        for (let i = 0; i < 32; i++) {
+            token += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return token;
+    }
+
+    // Helper function to sanitize input (basic XSS prevention)
+    function sanitizeInput(input) {
+        const div = document.createElement('div');
+        div.textContent = input;
+        return div.innerHTML
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
     // Helper function to validate non-empty fields
     function isFieldEmpty(value, fieldName) {
         const trimmed = value.trim();
@@ -152,35 +174,89 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     }
 
-    // Helper function to validate password
-    function isPasswordValid(password) {
-        if (password.length < 8) {
-            alert('Password must be at least 8 characters long.');
+    // Helper function to validate email format
+    function isValidEmail(email) {
+        const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address (e.g., user@example.com).');
             return false;
         }
         return true;
     }
 
+    // Helper function to validate username (alphanumeric, underscore, hyphen)
+    function isValidUsername(username) {
+        const usernameRegex = /^[a-zA-Z0-9_-]{3,20}$/;
+        if (!usernameRegex.test(username)) {
+            alert('Username must be 3-20 characters long and contain only letters, numbers, underscores, or hyphens.');
+            return false;
+        }
+        return true;
+    }
+
+    // Helper function to validate password strength
+    function isPasswordValid(password) {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password)) {
+            alert('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*?&).');
+            return false;
+        }
+        return true;
+    }
+
+    // Set CSRF token on form load
+    const csrfInput = authForm.querySelector('#csrf_token');
+    if (csrfInput) {
+        csrfInput.value = generateCsrfToken();
+    }
+
     authForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const formType = authForm.dataset.formType;
+        const submitButton = authForm.querySelector('button[type="submit"]');
+
+        // Disable submit button to prevent rapid submissions
+        submitButton.disabled = true;
+        setTimeout(() => {
+            submitButton.disabled = false;
+        }, 1000); // Re-enable after 1 second
+
+        // Verify CSRF token (mock check; in production, validate on server)
+        const csrfToken = authForm.querySelector('#csrf_token').value;
+        if (!csrfToken || csrfToken.length !== 32) {
+            alert('Invalid CSRF token. Please refresh the page and try again.');
+            return;
+        }
 
         if (formType === 'login') {
             const email = authForm.querySelector('#email').value;
             const password = authForm.querySelector('#password').value;
 
+            // Validate non-empty fields
             if (isFieldEmpty(email, 'email') || isFieldEmpty(password, 'password')) {
                 return;
             }
 
-            alert(`Login successful!\nEmail: ${email}\nPassword: ${password}`);
+            // Validate email format
+            if (!isValidEmail(email)) {
+                return;
+            }
+
+            // Sanitize inputs
+            const sanitizedEmail = sanitizeInput(email);
+            const sanitizedPassword = sanitizeInput(password);
+
+            alert(`Login successful!\nEmail: ${sanitizedEmail}\nPassword: [hidden for security]`);
             authForm.reset();
+            // Reset CSRF token
+            authForm.querySelector('#csrf_token').value = generateCsrfToken();
         } else if (formType === 'register') {
             const username = authForm.querySelector('#username').value;
             const email = authForm.querySelector('#email').value;
             const password = authForm.querySelector('#password').value;
             const confirmPassword = authForm.querySelector('#confirm-password').value;
 
+            // Validate non-empty fields
             if (
                 isFieldEmpty(username, 'username') ||
                 isFieldEmpty(email, 'email') ||
@@ -190,17 +266,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            if (!isPasswordValid(password)) {
+            // Validate formats and strength
+            if (!isValidUsername(username) || !isValidEmail(email) || !isPasswordValid(password)) {
                 return;
             }
 
+            // Validate password match
             if (password !== confirmPassword) {
                 alert('Passwords do not match.');
                 return;
             }
 
-            alert(`Registration successful!\nUsername: ${username}\nEmail: ${email}`);
+            // Sanitize inputs
+            const sanitizedUsername = sanitizeInput(username);
+            const sanitizedEmail = sanitizeInput(email);
+
+            alert(`Registration successful!\nUsername: ${sanitizedUsername}\nEmail: ${sanitizedEmail}`);
             authForm.reset();
+            // Reset CSRF token
+            authForm.querySelector('#csrf_token').value = generateCsrfToken();
         }
     });
 });
