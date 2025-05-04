@@ -105,6 +105,9 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+.bordered-img {
     border: 1px solid var(--divider-color);
 }
 
@@ -290,12 +293,17 @@ nav {
     position: relative;
     overflow: hidden;
     background: none;
+    min-height: 100vh; /* Ensure full viewport height for centering */
 }
 
 .hero-content {
     max-width: 800px;
-    margin-bottom: var(--spacing-xl);
-    z-index: 1;
+    margin: 0 auto; /* Center horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* Allow hero-content to take available space */
 }
 
 #hero-title {
@@ -402,10 +410,11 @@ nav {
 }
 
 .btn-primary:hover {
-    background-color: #00cc99; /* Darker shade of primary for better contrast */
-    color: var(--text-color); /* White text for visibility */
+    background-color: #00cc99;
+    color: var(--text-color);
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
 .btn-outline {
@@ -421,7 +430,7 @@ nav {
 
 .btn-outline:hover {
     background-color: var(--primary-color);
-    color: var(--bg-color); /* Dark text for visibility */
+    color: var(--bg-color);
     box-shadow: var(--shadow-sm);
 }
 
@@ -435,10 +444,11 @@ nav {
 }
 
 .btn-get-started:hover {
-    background-color: #00cc99; /* Darker shade of primary */
+    background-color: #00cc99;
     color: var(--text-color);
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
 .btn-demo {
@@ -467,18 +477,57 @@ nav {
 }
 
 /* Form Styles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--secondary-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.auth-form[data-form-type="register"] {
+    margin-top: 0; /* Remove top margin for register form to aid vertical centering */
+    margin: auto; /* Center horizontally and vertically within flex container */
+}
+
+.auth-form button {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1.1rem;
+    border-radius: var(--radius-md);
+}
+
 .newsletter-form {
     display: flex;
-    flex-direction: row; /* Changed to row for inline input and button */
+    flex-direction: row;
     align-items: center;
     gap: var(--spacing-sm);
     margin-top: var(--spacing-lg);
     width: 100%;
-    max-width: 500px; /* Increased max-width for better layout */
+    max-width: 500px;
     background-color: var(--secondary-color);
     padding: var(--spacing-sm);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
+    animation: fadeIn 0.5s ease-out;
 }
 
 .form-group {
@@ -510,7 +559,7 @@ nav {
 .form-group input:focus {
     border-color: var(--primary-color);
     outline: 2px solid var(--primary-color);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 0 8px var(--glow-color);
 }
 
 .form-link {
@@ -1089,7 +1138,7 @@ input:checked + .slider:before {
     padding: var(--spacing-2xl) var(--container-padding);
     background: linear-gradient(180deg, var(--tertiary-color), var(--bg-color));
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md); /* Added shadow for depth */
+    box-shadow: var(--shadow-md);
 }
 
 .newsletter-content {
@@ -1098,20 +1147,20 @@ input:checked + .slider:before {
 }
 
 .newsletter-content h2 {
-    font-size: 2rem; /* Slightly smaller for balance */
+    font-size: 2rem;
     margin-bottom: var(--spacing-md);
 }
 
 .newsletter-content p {
-    font-size: 1.1rem; /* Larger for readability */
+    font-size: 1.1rem;
     opacity: 0.9;
 }
 
 .newsletter-form input {
-    flex: 1; /* Take available space */
-    padding: var(--spacing-md); /* Increased padding */
-    border: 1px solid var(--primary-color); /* Neon border */
-    border-radius: var(--radius-md) 0 0 var(--radius-md); /* Rounded left corners */
+    flex: 1;
+    padding: var(--spacing-md);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
     background-color: var(--bg-color);
     color: var(--text-color);
     font-size: 1rem;
@@ -1120,19 +1169,19 @@ input:checked + .slider:before {
 .newsletter-form input:focus {
     border-color: var(--accent-color);
     outline: none;
-    box-shadow: 0 0 8px var(--glow-color); /* Glow effect on focus */
+    box-shadow: 0 0 8px var(--glow-color);
 }
 
 .newsletter-form button {
-    border-radius: 0 var(--radius-md) var(--radius-md) 0; /* Rounded right corners */
-    padding: var(--spacing-md) var(--spacing-lg); /* Match input height */
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
     font-size: 1rem;
 }
 
 .privacy-note {
     font-size: 0.85rem;
     margin-top: var(--spacing-md);
-    opacity: 0.8; /* Slightly faded for hierarchy */
+    opacity: 0.8;
 }
 
 /* CTA Section */
@@ -1263,6 +1312,13 @@ footer {
     flex-wrap: wrap;
     gap: var(--spacing-md);
     z-index: var(--z-toast);
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.cookie-banner-hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .cookie-banner p {
@@ -1421,17 +1477,22 @@ footer {
     }
 
     .newsletter-form {
-        flex-direction: column; /* Stack on smaller screens */
+        flex-direction: column;
         max-width: 100%;
     }
 
     .newsletter-form input {
-        border-radius: var(--radius-md); /* Full rounding for stacked input */
+        border-radius: var(--radius-md);
     }
 
     .newsletter-form button {
-        border-radius: var(--radius-md); /* Full rounding for button */
+        border-radius: var(--radius-md);
         width: 100%;
+    }
+
+    .auth-form {
+        max-width: 100%;
+        padding: var(--spacing-md);
     }
 }
 

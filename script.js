@@ -136,3 +136,71 @@ document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
     alert(`Subscribed with email: ${email}`);
     e.target.reset();
 });
+
+// Handle auth form submissions (login and register)
+document.addEventListener('DOMContentLoaded', () => {
+    const authForm = document.querySelector('.auth-form');
+    if (!authForm) return;
+
+    // Helper function to validate non-empty fields
+    function isFieldEmpty(value, fieldName) {
+        const trimmed = value.trim();
+        if (!trimmed) {
+            alert(`Please enter a valid ${fieldName}.`);
+            return true;
+        }
+        return false;
+    }
+
+    // Helper function to validate password
+    function isPasswordValid(password) {
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters long.');
+            return false;
+        }
+        return true;
+    }
+
+    authForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formType = authForm.dataset.formType;
+
+        if (formType === 'login') {
+            const email = authForm.querySelector('#email').value;
+            const password = authForm.querySelector('#password').value;
+
+            if (isFieldEmpty(email, 'email') || isFieldEmpty(password, 'password')) {
+                return;
+            }
+
+            alert(`Login successful!\nEmail: ${email}\nPassword: ${password}`);
+            authForm.reset();
+        } else if (formType === 'register') {
+            const username = authForm.querySelector('#username').value;
+            const email = authForm.querySelector('#email').value;
+            const password = authForm.querySelector('#password').value;
+            const confirmPassword = authForm.querySelector('#confirm-password').value;
+
+            if (
+                isFieldEmpty(username, 'username') ||
+                isFieldEmpty(email, 'email') ||
+                isFieldEmpty(password, 'password') ||
+                isFieldEmpty(confirmPassword, 'confirm password')
+            ) {
+                return;
+            }
+
+            if (!isPasswordValid(password)) {
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            alert(`Registration successful!\nUsername: ${username}\nEmail: ${email}`);
+            authForm.reset();
+        }
+    });
+});
